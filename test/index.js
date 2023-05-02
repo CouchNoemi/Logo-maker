@@ -4,6 +4,7 @@
 
 const fs = require("fs");
 const inquirer = require("inquirer");
+const { Circle, Triangle, Square } = require("../lib/shapes");
 
 const questions = [
   {
@@ -33,19 +34,19 @@ const questions = [
 
 inquirer.prompt(questions).then((data) => {
   const { text, textColor, shape, shapeColor } = data;
-  fs.writeFile(
-    "logoTest.svg",
-    `
-  <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
 
-  <circle cx="150" cy="100" r="80" fill="${shapeColor}" />
+  let updatedText = text ? text.slice(0, 3) : "SVG";
+  let updatedTextColor = textColor ? textColor : "red";
+  let updatedShapeColor = shapeColor ? shapeColor : "black";
 
-  <text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${text}</text>
+  let LOGO;
+  if (shape == "Square")
+    LOGO = new Square(updatedText, updatedTextColor, updatedShapeColor);
+  else if (shape == "Triangle")
+    LOGO = new Triangle(updatedText, updatedTextColor, updatedShapeColor);
+  else LOGO = new Circle(updatedText, updatedTextColor, updatedShapeColor);
 
-</svg>
-  `,
-    (err) => {
-      if (err) console.log(er);
-    }
-  );
+  fs.writeFile("logo.svg", LOGO.generateLogo(), (err) => {
+    if (err) console.log(er);
+  });
 });
