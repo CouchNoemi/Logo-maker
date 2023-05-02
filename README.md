@@ -5,7 +5,13 @@ My motivation to do this project is learning more about OOP, experiment with dif
 I made different questions to make the user pick text, textColor, shape and, shapeColor. it has a good interaction with the user.
 My project is a backend that creater a front end website with my logo displayed on the screen.
 
- 
+ ## Usage
+ - For this application I used the inquirer package and jest package
+-  Before starting to use the application make sure the packages are installed on the app use (nmp i).
+-  After that go to the index.js file and open the terminal with the (node index.js) to start the questionary.
+- A SVG file gets created which contains the logo.
+- Open the logo with live server.
+
 ## videoShot
 https://drive.google.com/file/d/1T6q4MnN1FzZ5iyC4zgrJ8ISKw1FCY4sI/view
 
